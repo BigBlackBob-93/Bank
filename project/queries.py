@@ -1,3 +1,5 @@
+# single table inheritance
+
 from config import CENTRAL, UNIVERSE
 
 

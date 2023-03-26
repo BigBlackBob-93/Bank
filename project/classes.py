@@ -1,3 +1,5 @@
+# object-oriented inheritance
+
 from abc import (ABC, abstractmethod)
 from typing import Union
 from datetime import datetime
@@ -8,7 +10,6 @@ NOW = datetime.now().strftime("%d-%m-%Y")
 
 class Bank(ABC):
 
-    @abstractmethod
     def __init__(self, name: str, date: str, location: str):
         self.name = name
         self.date = date
@@ -40,7 +41,7 @@ class Central(Bank):
 
 
 class Commercial(Bank, ABC):
-    @abstractmethod
+
     def __init__(self, name: str, license: int, equity: float, date: str, location: str, type: str):
         super().__init__(name=name, date=date, location=location)
         self.license = license
@@ -83,7 +84,7 @@ class Universal(Commercial):
 
 
 class Specialized(Commercial, ABC):
-    @abstractmethod
+
     def __init__(self, name: str, license: int, equity: float, date: str = NOW, location: str = "Moscow",
                  type: str = "PJSC", specialization: str = "Credit"):
         super().__init__(name=name, license=license, equity=equity, date=date, location=location, type=type)
